@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
+
+  presidio-analyzer:
+    image: efca56ff96f1
+    ports:
+      - "5001:3000"
+
+  presidio-anonymizer:
+    image: 9691dbb66ec0
+    ports:
+      - "5002:3000"
